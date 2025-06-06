@@ -25,7 +25,7 @@ if not os.path.exists(EMBEDDINGS_PATH):
         f.write(r.content)
     print("Download complete.")
 
-embeddings = torch.load(EMBEDDINGS_PATH)
+embeddings = torch.load(EMBEDDINGS_PATH, weights_only=False)
 
 # Converting embeddings dict to two tensors for fast computation
 product_ids = list(embeddings.keys())
