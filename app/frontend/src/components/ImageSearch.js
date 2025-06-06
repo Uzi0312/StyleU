@@ -37,7 +37,7 @@ function ImageSearch() {
     setAiSuggestions(null);
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/search', formData);
+      const res = await axios.post('https://styleu.onrender.com/search', formData);
       const { uploaded, results: matches } = res.data;
       setResults(matches);
       setUploadedTrendScore(uploaded.trend_score); // NEW
