@@ -6,6 +6,7 @@ import google.generativeai as genai
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+import requests
 
 
 api_key = os.environ.get("GENAI_API_KEY")
@@ -13,8 +14,18 @@ api_key = os.environ.get("GENAI_API_KEY")
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-# Loading embeddings at startup
-embeddings = torch.load("image_embeddings.pt")
+
+EMBEDDINGS_PATH = "image_embeddings.pt"
+EMBEDDINGS_URL = "https://drive.google.com/uc?export=download&id=1ZQVfG_5sNkvz_yUdz9v_O8-xCRr8ZjBx"
+
+if not os.path.exists(EMBEDDINGS_PATH):
+    print("Downloading image_embeddings.pt from Google Drive...")
+    r = requests.get(EMBEDDINGS_URL)
+    with open(EMBEDDINGS_PATH, "wb") as f:
+        f.write(r.content)
+    print("Download complete.")
+
+embeddings = torch.load(EMBEDDINGS_PATH)
 
 # Converting embeddings dict to two tensors for fast computation
 product_ids = list(embeddings.keys())
