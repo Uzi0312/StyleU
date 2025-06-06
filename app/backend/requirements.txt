@@ -6,4 +6,4 @@ flask_cors
 google-generativeai
 python-dotenv
 pandas
-requests
+gdown
