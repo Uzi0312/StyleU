@@ -6,7 +6,7 @@ import google.generativeai as genai
 from datetime import datetime
 from dotenv import load_dotenv
 import os
-import requests
+import gdown
 
 
 api_key = os.environ.get("GENAI_API_KEY")
@@ -16,13 +16,12 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 EMBEDDINGS_PATH = "image_embeddings.pt"
-EMBEDDINGS_URL = "https://drive.google.com/uc?export=download&id=1ZQVfG_5sNkvz_yUdz9v_O8-xCRr8ZjBx"
+GDRIVE_URL = "https://drive.google.com/uc?id=1ZQVfG_5sNkvz_yUdz9v_O8-xCRr8ZjBx"
 
+# Download embeddings file if not present
 if not os.path.exists(EMBEDDINGS_PATH):
     print("Downloading image_embeddings.pt from Google Drive...")
-    r = requests.get(EMBEDDINGS_URL)
-    with open(EMBEDDINGS_PATH, "wb") as f:
-        f.write(r.content)
+    gdown.download(GDRIVE_URL, EMBEDDINGS_PATH, quiet=False)
     print("Download complete.")
 
 embeddings = torch.load(EMBEDDINGS_PATH, weights_only=False)
