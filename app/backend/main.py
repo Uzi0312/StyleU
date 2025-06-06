@@ -5,6 +5,7 @@ import torch.nn as nn
 from PIL import Image
 import torch
 from utils import find_similar, embeddings, analyze_with_gemini, trend_awareness
+import os
 
 
 app = Flask(__name__)
@@ -107,6 +108,6 @@ def analyze():
         return jsonify({"error": "Failed to analyze image"}), 500
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Default to 5000 locally if not set
+    port = int(os.environ.get("PORT", 8080))  # Cloud Run expects 8080
     app.run(host="0.0.0.0", port=port)
 
