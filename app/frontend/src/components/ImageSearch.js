@@ -48,7 +48,7 @@ function ImageSearch() {
       });
       setSearchCount((prev) => prev + 1);
 
-      const aiRes = await axios.post('http://127.0.0.1:5000/analyze', formData);
+      const aiRes = await axios.post('https://styleu.onrender.com/analyze', formData);
       setAiSuggestions(aiRes.data);
     } catch {
       alert('Error searching or analyzing image');
@@ -64,7 +64,7 @@ function ImageSearch() {
     }
 
     axios
-      .post('http://127.0.0.1:5000/recommendations', { history })
+      .post('https://styleu.onrender.com/recommendations', { history })
       .then((res) => setRecommendations(res.data.results))
       .catch((err) => console.error('Recommendation error:', err));
   }, [history, searchCount]);
