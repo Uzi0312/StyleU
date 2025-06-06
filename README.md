@@ -69,13 +69,13 @@ The project was made using Python (Flask) & React
 Author: Mohammed Uzair
 
 To use: 
-Step 1: Download all code files (backend & frontend) & install all dependencies.
-Step 2: Run the main.py to launch your backend.
-Step 3: open cmd/terminal and go to the dir with your frontend folder; assuming all dependencies are installed, type 'npm install' to configure your frontend. Once loaded type 'npm start' to launch your frontend. This will open the application on your web browser.
-Step 4: choose a relevant file with some clothing (images can be uploaded from social media, gallery etc) then click on search. This returns a description of the item in image along with suggested add-ons. Clicking search also a returns a catlog on similar products found with similarity score below.
-Note that recommendations are also shown once user has searched for 3+ items.
+- Step 1: Download all code files (backend & frontend) & install all dependencies.
+- Step 2: Run the main.py to launch your backend.
+- Step 3: open cmd/terminal and go to the dir with your frontend folder; assuming all dependencies are installed, type 'npm install' to configure your frontend. Once loaded type 'npm start' to launch your frontend. This will open the application on your web browser.
+- Step 4: choose a relevant file with some clothing (images can be uploaded from social media, gallery etc) then click on search. This returns a description of the item in image along with suggested add-ons. Clicking search also a returns a catlog on similar products found with similarity score below.
+- Note that recommendations are also shown once user has searched for 3+ items.
 
 Things to know:
-1. Recommendations keep refereshing after every search, it may take a few seconds to reflect
-2. The same goes for the description and suggested add-ons, This however is quicker than the former.
+- Recommendations keep refereshing after every search, it may take a few seconds to reflect
+- The same goes for the description and suggested add-ons, This however is quicker than the former.
 
