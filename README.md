@@ -19,7 +19,7 @@ PROJECT OVERVIEW
 ## Key Features & Solutions
 
 ### 1. Visual Similarity Search (via `image_embeddings.pt`)
-- A preprocessed `.pt` file (`image_embeddings.pt`) contains feature embeddings (vectors) for all catalog products.
+- A preprocessed `.pt` file (`image_embeddings.pt`) contains feature embeddings (vectors) for all catalog products. Download Link: https://drive.google.com/file/d/1ZQVfG_5sNkvz_yUdz9v_O8-xCRr8ZjBx/view?usp=sharing
 - These embeddings are generated using a ResNet50 model (excluding its final classification layer), so each product is represented by a 2048-dimensional vector.
 - On app startup:
   - This file is loaded into memory using PyTorch (`torch.load`).
