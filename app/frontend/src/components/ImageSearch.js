@@ -37,7 +37,7 @@ function ImageSearch() {
     setAiSuggestions(null);
 
     try {
-      const res = await axios.post('https://styleu.onrender.com/search', formData);
+      const res = await axios.post('http://127.0.0.1:5000/search', formData);
       const { uploaded, results: matches } = res.data;
       setResults(matches);
       setUploadedTrendScore(uploaded.trend_score); // NEW
@@ -48,7 +48,7 @@ function ImageSearch() {
       });
       setSearchCount((prev) => prev + 1);
 
-      const aiRes = await axios.post('https://styleu.onrender.com/analyze', formData);
+      const aiRes = await axios.post('http://127.0.0.1:5000/analyze', formData);
       setAiSuggestions(aiRes.data);
     } catch {
       alert('Error searching or analyzing image');
@@ -64,7 +64,7 @@ function ImageSearch() {
     }
 
     axios
-      .post('https://styleu.onrender.com/recommendations', { history })
+      .post('http://127.0.0.1:5000/recommendations', { history })
       .then((res) => setRecommendations(res.data.results))
       .catch((err) => console.error('Recommendation error:', err));
   }, [history, searchCount]);
@@ -165,7 +165,7 @@ function ImageSearch() {
               else alert('Product not found for this image');
             }}
           >
-            Upload Image
+            Upload to view similar products
           </button>
           <button style={{ marginLeft: '1rem' }} onClick={() => setViewingImage(null)}>
             Close
